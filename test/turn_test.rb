@@ -40,4 +40,11 @@ class CardTest < Minitest::Test
     assert_equal "Correct!", turn.feedback
   end
 
+  def test_turn_correct_method_returns_false
+    card = Card.new("Which planet is closest to the sun?", "Mercury", :STEM)
+    turn = Turn.new("Saturn", card)
+
+    refute turn.correct?
+  end
+
 end
