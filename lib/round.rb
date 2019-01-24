@@ -16,4 +16,8 @@ class Round
     return turn_temp
   end
 
+  def number_correct
+    @turns.count{ |turn| turn.correct? }
+  end
+
 end
