@@ -6,6 +6,20 @@ class Round
     @turns = []
   end
 
+  def start
+    puts "Welcome! You're playing with #{deck.count} cards."
+    puts "-------------------------------------------------"
+    while(@turns.length != @deck.count)
+      puts "This is card number #{@turns.length + 1} out of #{deck.count}."
+      puts "Question: #{current_card.question}"
+      guess_user = gets.chomp
+      turn_temp = take_turn(guess_user)
+      puts turn_temp.feedback
+    end
+
+
+  end
+
   def current_card
     @deck.cards[@turns.length]
   end
