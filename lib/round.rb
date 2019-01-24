@@ -18,7 +18,7 @@ class Round
       turn_temp = take_turn(guess_user)
       puts turn_temp.feedback
     end
-    
+
     puts "****** Game over! ******"
     puts "You had #{number_correct} correct guesses out of #{@turns.length} for a total score of #{percent_correct}%."
 
@@ -37,6 +37,8 @@ class Round
   end
 
   def current_card
+    # Current card will always be the deck.cards array
+    # with index == how many turns have been taken
     @deck.cards[@turns.length]
   end
 
@@ -63,7 +65,7 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    number_correct_by_category(category).to_f / turns_in_category(category).to_f * 100
+    (number_correct_by_category(category).to_f / turns_in_category(category).to_f * 100).round(2)
   end
 
 end
